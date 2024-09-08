@@ -5,10 +5,15 @@ import os
 # # # Fetch username and token from environment variables
 # os.environ['MLFLOW_TRACKING_USERNAME'] = 'noman.rafique'
 # os.environ['MLFLOW_TRACKING_PASSWORD'] = '123'
-DAGSHUB_TOKEN = "f3b8958b4ea065923ae434cb9ddc54a5645428c7"
+from dotenv import load_dotenv
+import os
 
+# Load environment variables from .env file
+load_dotenv()
 
-dagshub_token = DAGSHUB_TOKEN
+# Retrieve the token
+dagshub_token = os.getenv('DAGSHUB_TOKEN')
+
 if not dagshub_token:
     raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
 
