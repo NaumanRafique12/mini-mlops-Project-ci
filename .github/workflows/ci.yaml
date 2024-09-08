@@ -32,3 +32,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         dvc push
+    - name: Testing Latested Version Staging Model
+      runs: |
+        python -m unittest tests/test_model.py

@@ -50,20 +50,17 @@ model_name = "my_model"
 with open(json_file_path, "r") as f:
     data = json.load(f)
 run_id = data.get(str(get_latest_model_version(model_name)))
-
-# Step 2: Get the value of 'V1' (assuming it contains the dataset path)
-
-vectorizer = pickle.load(open('models/vectorizer.pkl','rb'))
-# model = pickle.load(open(r"C:\Users\VU360solutions\Desktop\mlops\mini-mlops-project\models\model.pkl",'rb'))
-
 # logged_model = 'runs:/9d2ae11f5f9a42bfa47e12cebd10eab7/Logistic Regression'
 logged_model = f'runs:/{run_id}/Logistic Regression'
 
 # Load model as a PyFuncModel.
 model = mlflow.pyfunc.load_model(logged_model)
- 
+# Step 2: Get the value of 'V1' (assuming it contains the dataset path)
 
- 
+vectorizer = pickle.load(open('models/vectorizer.pkl','rb'))
+# model = pickle.load(open(r"C:\Users\VU360solutions\Desktop\mlops\mini-mlops-project\models\model.pkl",'rb'))
+
+
 @app.route('/')
 def home():
     return render_template('index.html',result=None)

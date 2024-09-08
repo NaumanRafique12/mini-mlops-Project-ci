@@ -2,7 +2,7 @@ data_splitting:
   test_size: 0.2
 
 feature_engineering:
-  max_features: 10
+  max_features: 100
 
 model_building:
   learning_rate: 0.001
