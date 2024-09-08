@@ -1,0 +1,14 @@
+digest: d3772410
+name: dataset
+profile: '{"num_rows": 5187, "num_elements": 57057}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "0", "required": true}, {"type":
+  "double", "name": "1", "required": true}, {"type": "double", "name": "2", "required":
+  true}, {"type": "double", "name": "3", "required": true}, {"type": "double", "name":
+  "4", "required": true}, {"type": "double", "name": "5", "required": true}, {"type":
+  "double", "name": "6", "required": true}, {"type": "double", "name": "7", "required":
+  true}, {"type": "double", "name": "8", "required": true}, {"type": "double", "name":
+  "9", "required": true}, {"type": "long", "name": "output", "required": true}]}'
+source: '{"tags": {"mlflow.user": "f3b8958b4ea065923ae434cb9ddc54a5645428c7", "mlflow.source.name":
+  "src/model/model_evaluation.py", "mlflow.source.type": "LOCAL", "mlflow.source.git.commit":
+  "f3953a32ea420df679d015c538a84e74883c1727"}}'
+source_type: code

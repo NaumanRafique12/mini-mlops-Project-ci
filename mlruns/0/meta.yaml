@@ -1,6 +1,6 @@
-artifact_location: mlflow-artifacts:/0
-creation_time: 1725795115082
+artifact_location: file:///C:/Users/VU360solutions/Desktop/mini-mlops-Project-ci/mlruns/0
+creation_time: 1725799676240
 experiment_id: '0'
-last_update_time: 1725795115082
+last_update_time: 1725799676240
 lifecycle_stage: active
 name: Default

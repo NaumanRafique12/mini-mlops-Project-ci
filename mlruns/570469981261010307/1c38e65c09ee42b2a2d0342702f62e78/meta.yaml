@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/VU360solutions/Desktop/mini-mlops-Project-ci/mlruns/570469981261010307/1c38e65c09ee42b2a2d0342702f62e78/artifacts
+end_time: 1725800110250
+entry_point_name: ''
+experiment_id: '570469981261010307'
+lifecycle_stage: active
+run_id: 1c38e65c09ee42b2a2d0342702f62e78
+run_name: all_artifacts_file_model_png
+run_uuid: 1c38e65c09ee42b2a2d0342702f62e78
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1725800109966
+status: 4
+tags: []
+user_id: f3b8958b4ea065923ae434cb9ddc54a5645428c7

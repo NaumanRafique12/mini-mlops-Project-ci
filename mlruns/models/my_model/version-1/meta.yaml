@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1725800170137
+current_stage: Production
+description: null
+last_updated_timestamp: 1725800170186
+name: my_model
+run_id: bb515b0ea81f4e5c8cdf643b35a4263a
+run_link: null
+source: file:///C:/Users/VU360solutions/Desktop/mini-mlops-Project-ci/mlruns/570469981261010307/bb515b0ea81f4e5c8cdf643b35a4263a/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///C:/Users/VU360solutions/Desktop/mini-mlops-Project-ci/mlruns/570469981261010307/bb515b0ea81f4e5c8cdf643b35a4263a/artifacts/model
+user_id: null
+version: 1
