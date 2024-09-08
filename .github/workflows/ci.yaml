@@ -1,0 +1,20 @@
+name: CI Code
+on: push
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up code
+        uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        
+      - name: Install dependencies
+        run: |
+          pip install mlflow
+          pip install dagshub
+          
+      - name: Run Code
+        run: |
+          python app.py
