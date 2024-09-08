@@ -19,3 +19,4 @@ jobs:
     - name: Run code
       run: |
         dvc repro
+        dvc push
