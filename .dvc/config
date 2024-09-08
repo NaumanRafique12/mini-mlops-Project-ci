@@ -1,2 +1,4 @@
 ['remote "dvcstore"']
     url = S3://pipelines3bucketminiproject
+['remote "origin"']
+    url = https://dagshub.com/<noman.rafique>/<repo>.dvc
