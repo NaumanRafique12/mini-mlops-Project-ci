@@ -10,13 +10,8 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
-from dotenv import load_dotenv
+dagshub_token = os.getenv('DAGSHUB_TOKEN') # Retrieve the token
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Retrieve the token
-dagshub_token = os.getenv('DAGSHUB_TOKEN')
 
 if not dagshub_token:
     raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
