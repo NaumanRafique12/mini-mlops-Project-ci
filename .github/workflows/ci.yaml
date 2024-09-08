@@ -33,5 +33,5 @@ jobs:
       run: |
         dvc push
     - name: Testing Latested Version Staging Model
-      runs: |
+      run: |
         python -m unittest tests/test_model.py
