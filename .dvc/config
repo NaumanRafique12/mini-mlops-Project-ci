@@ -1,0 +1,2 @@
+['remote "dvcstore"']
+    url = S3://pipelines3bucketminiproject
