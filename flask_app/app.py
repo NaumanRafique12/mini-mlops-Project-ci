@@ -42,14 +42,15 @@ def get_latest_model_version(model_name):
         latest_version = client.get_latest_versions(model_name, stages=["None"])
     return latest_version[0].version if latest_version else None
 
-
-# Step 1: Read the JSON file
-json_file_path = os.path.join(os.path.dirname(__file__), '..', 'reports', 'versions.json')
 model_name = "my_model"
-# Reading the JSON file
-with open(json_file_path, "r") as f:
-    data = json.load(f)
-run_id = data.get(str(get_latest_model_version(model_name)))
+
+# # Step 1: Read the JSON file
+# json_file_path = os.path.join(os.path.dirname(__file__), '..', 'reports', 'versions.json')
+# # Reading the JSON file
+# with open(json_file_path, "r") as f:
+#     data = json.load(f)
+# run_id = data.get(str(get_latest_model_version(model_name)))
+run_id = "6b549b63b4a240ac8dfbd9bd72fa1513"
 # logged_model = 'runs:/9d2ae11f5f9a42bfa47e12cebd10eab7/Logistic Regression'
 logged_model = f'runs:/{run_id}/Logistic Regression'
 
