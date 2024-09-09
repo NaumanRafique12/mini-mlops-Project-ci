@@ -1,10 +1,11 @@
-FROM python:3.9-slim
+FROM python:3.11.9-slim
 
 WORKDIR /app
 
 COPY flask_app/ /app/
 
 COPY models/vectorizer.pkl /app/models/vectorizer.pkl
+COPY reports/versions.json /app/reports/versions.json 
 
 RUN pip install -r requirements.txt
 

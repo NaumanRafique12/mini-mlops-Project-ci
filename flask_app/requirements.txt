@@ -1,6 +1,6 @@
-dagshub==0.3.35
-numpy==1.21.0
+numpy==1.23.2
 pandas==2.2.2
+dagshub==0.3.35
 Flask==3.0.3
 mlflow==2.11.3
 nltk==3.9.1
