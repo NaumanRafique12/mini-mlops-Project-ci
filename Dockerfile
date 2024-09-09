@@ -11,11 +11,8 @@ WORKDIR /app
 COPY flask_app/ /app/
 COPY models/vectorizer.pkl /app/models/vectorizer.pkl 
 
-RUN apk add --no-cache --virtual .build-deps \
-    gcc musl-dev libffi-dev \
-    && pip install --no-cache-dir Flask gunicorn -r requirements.txt \
-    && python -m nltk.downloader stopwords wordnet \
-    && apk del .build-deps
+RUN pip install --no-cache-dir Flask gunicorn -r requirements.txt \
+    && python -m nltk.downloader stopwords wordnet
 
 # Expose port 5000 for the app
 EXPOSE 5000
