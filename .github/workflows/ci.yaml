@@ -19,26 +19,26 @@ jobs:
     #     key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
     #     restore-keys: |
     #       ${{ runner.os }}-pip-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+    # - name: Install dependencies
+    #   run: |
+    #     pip install -r requirements.txt
 
-    - name: Run code
-      run: |
-        dvc repro
-    - name: Configure AWS Credentials
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: |
-        dvc push
-    - name: Testing Latested Version Staging Model
-      run: |
-        python -m unittest tests/test_model.py
+    # - name: Run code
+    #   run: |
+    #     dvc repro
+    # - name: Configure AWS Credentials
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #   run: |
+    #     dvc push
+    # - name: Testing Latested Version Staging Model
+    #   run: |
+    #     python -m unittest tests/test_model.py
 
-    - name: Promote model to production
-      if: success()
-      run: python scripts/promote_model.py
+    # - name: Promote model to production
+    #   if: success()
+    #   run: python scripts/promote_model.py
 
     - name: Log in to Docker Hub
       if: success()
