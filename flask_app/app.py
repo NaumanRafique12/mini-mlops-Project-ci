@@ -9,7 +9,7 @@ import os
 from mlflow.tracking import MlflowClient
 import nltk
 
-nltk.download('stopwords')
+# nltk.download('stopwords')
 # dagshub.init(repo_owner='NaumanRafique12', repo_name='mini-mlops-Project', mlflow=True)
 # mlflow.set_tracking_uri('https://dagshub.com/NaumanRafique12/mini-mlops-Project.mlflow')
 # dagshub.init(repo_owner='noman.rafique', repo_name='new_mini_mlops_emotion', mlflow=True)
