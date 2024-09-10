@@ -63,7 +63,7 @@ class TestModelLoading(unittest.TestCase):
         cls.holdout_data = pd.read_csv(os.path.join(os.path.dirname(__file__),'..', 'data', 'features','test_tfidf.csv'))
 
 # Retrieve the token
-        dagshub_token = os.getenv('DAGSHUB_TOKEN')
+        dagshub_token = os.getenv('DAGSHUB_PAT')
 
         if not dagshub_token:
             raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
