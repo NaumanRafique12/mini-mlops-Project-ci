@@ -10,8 +10,8 @@ COPY flask_app/ /app/
 COPY models/vectorizer.pkl /app/models/vectorizer.pkl
 COPY reports/versions.json /app/reports/versions.json
 
-# Download only the necessary NLTK data
-RUN python -m nltk.downloader stopwords wordnet
+RUN pip install gunicorn && python -m nltk.downloader stopwords
+
 # Stage 2: Final Stage
 FROM python:3.11.9-slim AS final
 WORKDIR /app
@@ -19,4 +19,4 @@ COPY --from=build /app /app
 # Copy only the necessary files from the build stage COPY --from-build /app/app
 # Expose the application port
 EXPOSE 5000
-CMD ["gunicorn","-b","0.0.0.0:5000","app.py"]
+CMD ["gunicorn","-b","0.0.0.0:5000","app:app"]
