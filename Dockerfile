@@ -6,7 +6,7 @@ WORKDIR /app
 COPY flask_app/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application code and model files
-COPY flask app/ /app/
+COPY flask_app/ /app/
 COPY models/vectorizer.pkl /app/models/vectorizer.pkl
 COPY reports/versions.json /app/reports/versions.json
 
