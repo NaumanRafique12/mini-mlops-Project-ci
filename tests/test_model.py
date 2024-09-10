@@ -52,7 +52,6 @@ def load_latest_model(json_file_relative_path=os.path.join('..', 'reports', 'ver
 
     # Load model as a PyFuncModel
     model = mlflow.pyfunc.load_model(logged_model)
-    
     return model
 
 class TestModelLoading(unittest.TestCase):
