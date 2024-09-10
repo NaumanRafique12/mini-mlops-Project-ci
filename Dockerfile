@@ -14,7 +14,7 @@ COPY reports/versions.json /app/reports/versions.json
 FROM python:3.11.9-slim AS final
 WORKDIR /app
 COPY --from=build /app /app
-RUN pip install gunicorn
+RUN pip install --no-cache-dir -r requirements.txt
 # Copy only the necessary files from the build stage COPY --from-build /app/app
 # Expose the application port
 EXPOSE 5000
