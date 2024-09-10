@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
-dagshub_token = os.getenv('DAGSHUB_TOKEN') # Retrieve the token
+dagshub_token = os.getenv('DAGSHUB_PAT') # Retrieve the token
 
 
 if not dagshub_token:
