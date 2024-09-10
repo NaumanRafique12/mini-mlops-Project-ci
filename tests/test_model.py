@@ -7,11 +7,12 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import pickle
 from dotenv import load_dotenv
+import os
 
 # Load environment variables from .env file
 load_dotenv()
-dagshub_token = os.getenv('DAGSHUB_PAT') # Retrieve the token
-
+# Retrieve the token
+dagshub_token = os.getenv('DAGSHUB_PAT')
 
 if not dagshub_token:
     raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
