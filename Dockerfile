@@ -19,4 +19,4 @@ COPY --from=build /app /app
 # Copy only the necessary files from the build stage COPY --from-build /app/app
 # Expose the application port
 EXPOSE 5000
-CMD ["gunicorn","--bind","0.0.0.0:5000","--timeout","120","app:app"]
+CMD ["gunicorn","-b","0.0.0.0:5000","app:app"]
