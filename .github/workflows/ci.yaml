@@ -40,33 +40,52 @@ jobs:
       if: success()
       run: python scripts/promote_model.py
 
-    - name: Log in to Docker Hub
-      if: success()
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USER_NAME }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
+    
+    - name: Login to AWS ECR
+      env:
+        AWS_REGION: us-west-1
+        AWS_ECR_REGISTRY: 314650839790.dkr.ecr.us-west-1.amazonaws.com
+      run: |
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY
     - name: Build Docker image
-      if: success()
       run: |
-        docker build -t ${{ secrets.DOCKER_USER_NAME }}/emotion:latest .
-    - name: Push Docker image to Docker Hub
-      if: success()
+        docker build -t campusx_ecr .
+    - name: Tag Docker image
       run: |
-        docker push ${{ secrets.DOCKER_USER_NAME }}/emotion:latest
+        docker tag campusx_ecr:latest 992382647488.dkr.ecr.ap-southeast-2.amazonaws.com/campusx_ecr:latest
+    - name: Push Docker image to AWS ECR
+      run: |
+        docker push 992382647488.dkr.ecr.ap-southeast-2.amazonaws.com/campusx_ecr:latest
 
-    - name: Deploy to EC2 instance
-      if: success()
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{secrets.EC2_SSH_KEY}}
-        script: |
-          docker pull noman013/emotion:latest
-          docker stop my-app || true
-          docker rm my-app || true
-          docker run -d -p 80:5000 --name my-app -e DAGSHUB_PAT=f3b8958b4ea065923ae434cb9ddc54a5645428c7 noman013/emotion:latest
-          timeout: 60s
-          command_timeout: 15m
+    # - name: Log in to Docker Hub
+    #   if: success()
+    #   uses: docker/login-action@v2
+    #   with:
+    #     username: ${{ secrets.DOCKER_USER_NAME }}
+    #     password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    # - name: Build Docker image
+    #   if: success()
+    #   run: |
+    #     docker build -t ${{ secrets.DOCKER_USER_NAME }}/emotion:latest .
+    # - name: Push Docker image to Docker Hub
+    #   if: success()
+    #   run: |
+    #     docker push ${{ secrets.DOCKER_USER_NAME }}/emotion:latest
+
+    # - name: Deploy to EC2 instance
+    #   if: success()
+    #   uses: appleboy/ssh-action@v0.1.5
+    #   with:
+    #     host: ${{ secrets.EC2_HOST }}
+    #     username: ${{ secrets.EC2_USER }}
+    #     key: ${{secrets.EC2_SSH_KEY}}
+    #     script: |
+    #       docker pull noman013/emotion:latest
+    #       docker stop my-app || true
+    #       docker rm my-app || true
+    #       docker run -d -p 80:5000 --name my-app -e DAGSHUB_PAT=f3b8958b4ea065923ae434cb9ddc54a5645428c7 noman013/emotion:latest
+    #       timeout: 60s
+    #       command_timeout: 15m
