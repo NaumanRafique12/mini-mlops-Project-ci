@@ -54,10 +54,10 @@ jobs:
         docker build -t ecr-docker .
     - name: Tag Docker image
       run: |
-        docker tag ecr-docker:latest $AWS_ECR_REGISTRY/ecr-docker:latest
+        docker tag ecr-docker:latest 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
     - name: Push Docker image to AWS ECR
       run: |
-        docker push $AWS_ECR_REGISTRY/ecr-docker:latest
+        docker push 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
 
     # - name: Log in to Docker Hub
     #   if: success()
