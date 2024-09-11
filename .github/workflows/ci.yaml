@@ -51,13 +51,13 @@ jobs:
         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY
     - name: Build Docker image
       run: |
-        docker build -t campusx_ecr .
+        docker build -t ecr-docker .
     - name: Tag Docker image
       run: |
-        docker tag campusx_ecr:latest 992382647488.dkr.ecr.ap-southeast-2.amazonaws.com/campusx_ecr:latest
+        docker tag ecr-docker:latest 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
     - name: Push Docker image to AWS ECR
       run: |
-        docker push 992382647488.dkr.ecr.ap-southeast-2.amazonaws.com/campusx_ecr:latest
+       docker tag ecr-docker:latest 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
 
     # - name: Log in to Docker Hub
     #   if: success()
