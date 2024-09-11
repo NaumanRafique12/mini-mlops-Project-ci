@@ -45,7 +45,7 @@ def get_latest_model_version(model_name):
         latest_version = client.get_latest_versions(model_name, stages=["None"])
     return latest_version[0].version if latest_version else None
 
-model_name = "my_model"
+model_name="my_model"
 
 # # Step 1: Read the JSON file
 # json_file_path = os.path.join(os.path.dirname(__file__), '..', 'reports', 'versions.json')
