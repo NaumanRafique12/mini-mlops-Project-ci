@@ -59,7 +59,7 @@ jobs:
       run: |
         docker push 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
 
-  - name: Deploy to EC2
+    - name: Deploy to EC2
       if: success()
       uses: appleboy/ssh-action@v0.1.5
       with:
