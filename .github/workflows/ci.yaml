@@ -68,3 +68,5 @@ jobs:
           docker stop my-app || true
           docker rm my-app || true
           docker run -d -p 80:5000 --name my-app -e DAGSHUB_PAT=f3b8958b4ea065923ae434cb9ddc54a5645428c7 noman013/emotion:latest
+          timeout: 60s
+          command_timeout: 15m
