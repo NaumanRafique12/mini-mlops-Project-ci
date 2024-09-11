@@ -71,9 +71,9 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region us-west-1
           aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 314650839790.dkr.ecr.us-west-1.amazonaws.com
-          docker pull 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
           docker stop ecr-docker || true
           docker remove ecr-docker || true
+          docker pull 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
           docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} --name ecr-docker 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
 
     # - name: Log in to Docker Hub
