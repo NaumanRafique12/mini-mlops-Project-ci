@@ -74,7 +74,7 @@ jobs:
           docker pull 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
           docker stop ecr-docker || true
           docker remove ecr-docker || true
-          docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} --name ecr-docker 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
+          docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} 314650839790.dkr.ecr.us-west-1.amazonaws.com/ecr-docker:latest
 
     # - name: Log in to Docker Hub
     #   if: success()
